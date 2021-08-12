@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Montserrat', sans-serif;
+
+  label {
+    font-size: 17px;
+  }
+  .input1 {
+    width: 300px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 0 0 0 10px;
+    background: none;
+    cursor: move;
+    margin: 5px 0 5px 0;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: gray;
+    }
+  }
+  .btn-1 {
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    background: none;
+    border: 1px solid gray;
+    color: white;
+    cursor: move;
+    margin: 5px 0 5px 0;
+  }
+  .btn-2 {
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    background: none;
+    border: 1px solid gray;
+    color: white;
+    cursor: move;
+    margin: 5px 0 5px 0;
+  }
+  .input2 {
+    width: 20px;
+    height: 20px;
+    margin: 5px 0 5px 0;
+    border: 1px solid gray;
+    background: none;
+    border-radius: 50%;
+    cursor: move;
+  }
+
+  .select {
+    width: 100px;
+    height: 27px;
+    background: none;
+    color: white;
+    border: 1px solid gray;
+    cursor: move;
+    margin: 5px 0 5px 0;
+    &:focus {
+      outline: none;
+    }
+  }
+  .textarea {
+    width: 300px;
+    height: 100px;
+    padding: 5px 0 5px 10px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    color: white;
+    background: none;
+    margin: 5px 0 5px 0;
+    &:focus {
+      outline: none;
+    }
+  }
+
+}
+

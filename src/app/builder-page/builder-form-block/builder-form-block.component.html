@@ -1,0 +1,47 @@
+<div class="container">
+
+  <div class="styles">
+    <ul *ngFor="let i of buildService.builder">
+      <li> {{i}}
+      <button id="btn">open</button>
+      </li>
+
+<!--      <div id="style" class="{{i+'open'}}">-->
+<!--        <p>Style</p>-->
+<!--        <div class="inputStyles">-->
+<!--          <small>Width: </small>-->
+<!--          <input type="text">-->
+<!--        </div>-->
+<!--        <div class="inputStyles">-->
+<!--          <small>Height: </small>-->
+<!--          <input type="text">-->
+<!--        </div>-->
+<!--        <div class="inputStyles">-->
+<!--          <small>Color: </small>-->
+<!--          <input type="text">-->
+<!--        </div>-->
+<!--      </div>-->
+    </ul>
+  </div>
+
+  <div class="builder"
+       cdkDropList
+       #builderList="cdkDropList"
+       [cdkDropListData]="buildService.builder"
+       (cdkDropListDropped)="buildService.drop($event)">
+
+    <div>
+      <div *ngFor="let e of buildService.builder" [innerHTML]="e | secure" cdkDrag></div>
+    </div>
+  </div>
+
+  <div class="readyForms"
+       cdkDropList
+       #readyFormsList="cdkDropList"
+       [cdkDropListData]="buildService.ready"
+       [cdkDropListConnectedTo]="[builderList]"
+       (cdkDropListDropped)="buildService.drop($event)">
+    <div *ngFor="let e of buildService.ready" [innerHTML]="e | secure" cdkDrag></div>
+  </div>
+</div>
+

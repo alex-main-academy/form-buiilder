@@ -1,0 +1,71 @@
+<div class="container">
+
+  <form class="login" [formGroup]="form" *ngIf="!register">
+
+    <div class="register">
+      <h3>LogIn</h3>
+      <button type="button" class="btn-1" (click)="register =! register">Register</button>
+    </div>
+
+    <div class="form-control">
+      <img src="/assets/user-8-128.png" alt="icon">
+      <input type="email" placeholder="Email" formControlName="email" #emailSignIn>
+    </div>
+    <div class="validation" *ngIf="form.get!('email')?.touched">
+      <small *ngIf="form.get!('email')?.errors?.required">Поле email не может быть пустым</small>
+      <small *ngIf="form.get!('email')?.errors?.email">Введите корректный email</small>
+    </div>
+
+
+    <div class="form-control">
+      <img src="/assets/key-128.png" alt="icon">
+      <input type="password" placeholder="Password" formControlName="password" #passwordSignIn>
+    </div>
+    <div class="validation" *ngIf="form.get!('password')?.touched">
+      <small *ngIf="form.get!('password')?.errors?.required">Поле password не может быть пустым</small>
+      <small *ngIf="form.get!('password')?.errors?.minlength">Password должен быть не менее еще {{
+        form.get!('password')?.errors?.minlength?.requiredLength -
+          form.get!('password')?.errors?.minlength?.actualLength
+        }}</small>
+    </div>
+
+    <button type="submit" class="btn-2" [disabled]="form.invalid" (click)="onSignIn(emailSignIn.value, passwordSignIn.value)">Login</button>
+    <div class="submitValidation" *ngIf="
+    form.get!('email')?.touched && form.get!('email')?.invalid || form.get!('password')?.touched && form.get!('password')?.invalid
+    ">
+      <small>Введите корректные данные</small>
+    </div>
+  </form>
+
+<!--  New signIn-form-block -->
+
+
+  <form class="registration" *ngIf="register" [formGroup]="form2" (ngSubmit)="signUp()">
+    <div class="register">
+      <h3>Sign In</h3>
+      <button type="button" class="btn-1" (click)="register =! register">Login</button>
+    </div>
+
+    <small class="small" *ngIf="form2.get!('name')?.invalid"><span>* </span>Enter your name</small>
+    <div class="form-control">
+      <img src="/assets/user-8-128.png" alt="icon">
+      <input type="email" placeholder="Name" formControlName="name">
+    </div>
+
+    <small class="small" *ngIf="form2.get!('email')?.invalid"><span>* </span>Enter your email</small>
+    <div class="form-control">
+      <img src="/assets/email-14-128.png" alt="icon">
+      <input type="email" placeholder="Email" formControlName="email" #emailSignUp>
+    </div>
+
+    <small class="small" *ngIf="form2.get!('password')?.invalid"><span>* </span>Enter your password</small>
+    <div class="form-control">
+      <img src="/assets/key-128.png" alt="icon">
+      <input type="password" placeholder="Password" formControlName="password" #passwordSignUp>
+    </div>
+
+
+    <button type="submit" class="btn-3" [disabled]="form2.invalid" (click)="onSignUp(emailSignUp.value, passwordSignUp.value)">Sign Up</button>
+  </form>
+
+</div>
